@@ -28,7 +28,8 @@ function problemText(info) {
 
 export default function BackupsCard() {
   const [info, setInfo] = useState(null);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); // loading the status failed
+  const [backupError, setBackupError] = useState(""); // the last "Back up now" failed
   const [message, setMessage] = useState("");
   const [running, setRunning] = useState(false);
 
@@ -48,12 +49,13 @@ export default function BackupsCard() {
   async function handleBackupNow() {
     setRunning(true);
     setMessage("");
-    setError("");
+    setBackupError("");
     try {
       const created = await createBackupNow();
       setMessage(`Backup created: ${created.filename}`);
     } catch (e) {
-      setError(errorMessage(e, "Backup failed."));
+      // Kept separate from `error`, which refresh() below clears on a successful load.
+      setBackupError(errorMessage(e, "Backup failed."));
     } finally {
       setRunning(false);
       refresh();
@@ -64,6 +66,7 @@ export default function BackupsCard() {
     <div className="card" style={{ maxWidth: 560 }}>
       <h3 style={{ marginTop: 0 }}>Backups</h3>
       {error && <p className="error-text">{error}</p>}
+      {backupError && <p className="error-text">{backupError}</p>}
 
       {!info ? (
         !error && <p className="empty-state">Loading...</p>
