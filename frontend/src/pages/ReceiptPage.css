@@ -1,0 +1,80 @@
+.receipt-page {
+  min-height: 100vh;
+  padding: 1rem;
+  background: #f4f6f8;
+}
+
+.receipt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Thermal printers print ~72mm wide on 80mm paper. */
+.receipt {
+  width: 72mm;
+  margin: 0 auto;
+  padding: 4mm 3mm;
+  background: #fff;
+  color: #000;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.r-center {
+  text-align: center;
+}
+
+.r-store {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.r-multiline {
+  white-space: pre-line; /* keep the line breaks typed in Settings */
+}
+
+.r-rule {
+  border-top: 1px dashed #000;
+  margin: 2mm 0;
+}
+
+.r-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2mm;
+}
+
+.r-row span:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.r-item {
+  margin-bottom: 1.5mm;
+}
+
+.r-total {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media print {
+  @page {
+    margin: 0; /* also stops the browser printing its URL/date header and footer */
+  }
+  .no-print {
+    display: none !important;
+  }
+  .receipt-page {
+    min-height: 0;
+    padding: 0;
+    background: none;
+  }
+  .receipt {
+    margin: 0;
+    padding: 2mm 3mm;
+  }
+}

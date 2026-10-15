@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: #1e3a5f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.app-header h1 {
+  font-size: 1.25rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.app-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.app-nav a {
+  color: #cdd9e5;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.app-nav a:hover {
+  color: white;
+}
+
+.app-nav a.active {
+  color: white;
+  border-bottom-color: #4caf7d;
+}
+
+.app-main {
+  flex: 1;
+  padding: 1.5rem;
+  background: #f4f6f8;
+}
+
+.page-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.25rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: start;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid #e3e7eb;
+  font-size: 0.92rem;
+}
+
+/* Each cell takes its direction from its own text: Urdu right-to-left,
+   English left-to-right. Works like dir="auto", for every table at once. */
+td {
+  unicode-bidi: plaintext;
+}
+
+th {
+  color: #556;
+  font-weight: 600;
+  background: #f8f9fb;
+}
+
+tr:hover td {
+  background: #fafbfc;
+}
+
+input,
+select,
+textarea {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #ccd3da;
+  border-radius: 5px;
+  font-size: 0.92rem;
+  width: 100%;
+}
+
+textarea {
+  font-family: inherit;
+  resize: vertical;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  background: #1e3a5f;
+  color: white;
+}
+
+button:hover {
+  background: #15293f;
+}
+
+button.secondary {
+  background: #e3e7eb;
+  color: #333;
+}
+
+button.secondary:hover {
+  background: #d4d9de;
+}
+
+button.danger {
+  background: #c0392b;
+}
+
+button.danger:hover {
+  background: #992d22;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge.warn {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.badge.ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge.info {
+  background: #e8f0fe;
+  color: #1a56db;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-row label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #556;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+.error-text {
+  color: #c0392b;
+  font-size: 0.88rem;
+  margin: 0.4rem 0;
+}
+
+.empty-state {
+  color: #8a94a0;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 420px;
+  width: 90%;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box .label {
+  font-size: 0.8rem;
+  color: #8a94a0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.stat-box .value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-top: 0.2rem;
+}
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.cart-row:last-child {
+  border-bottom: none;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.qty-control button {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.85rem;
+}
+
+.totals {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e3e7eb;
+}
+
+.totals .line {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+}
+
+.totals .grand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #1e3a5f;
+}
+
+.app-user {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #f4f6f8;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-card h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.4rem;
+  color: #1e3a5f;
+}
+
+.login-card .subtitle {
+  margin: 0 0 1.25rem;
+  color: #8a94a0;
+  font-size: 0.9rem;
+}
+
+/* Cart: the name block fills the space left of the quantity controls, and each
+   line inside it (name, unit price) takes its own direction. */
+.cart-row {
+  gap: 0.75rem;
+}
+
+.cart-row > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-row > div:first-child > div {
+  unicode-bidi: plaintext;
+  text-align: start;
+}

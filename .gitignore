@@ -1,0 +1,12 @@
+backend/.env
+frontend/.env
+backend/venv/
+__pycache__/
+*.db
+backend/*.backup-*.db
+backend/backups/
+node_modules/
+frontend/dist/
+*.before-restore-*
+*.partial
+*.restoring
